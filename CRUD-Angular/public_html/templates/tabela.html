@@ -1,0 +1,67 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Lista de Produtos</div>   
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">                
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </span> 
+                        <input class="form-control"
+                               ng-model="pesquisa"
+                               placeholder="Qual Produto você está procurando?"
+                               autofocus="autofocus">                                   
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <a href="#/cadastro">
+                        <button type="button" class="btn btn-default pull-right">Novo 
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center col-md-1">#</th>
+                        <th>Decrição</th>
+                        <th class="text-left col-md-2">Valor</th>
+                        <th class="col-md-1"></th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="produto in produtos| filter:{descricao:pesquisa} track by $index">
+                    <tr>
+                        <td class="text-center">{{produto.id}}</td>
+                        <td>{{produto.descricao| uppercase}}</td>
+                        <td>{{produto.preco| currency:'R$ '}}</td> 
+
+                        <td class="text-center">
+                            <a href="#/cadastro/{{produto.id}}"
+                               class="btn btn-link btn-xs"
+                               title="Editar">                                
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                            <a href="" ng-click="excluir(produto)"
+                               class="btn btn-link btn-xs"
+                               title="Excluir">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>                                
+                        </td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

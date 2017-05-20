@@ -1,0 +1,65 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Lista de Produtos</div>   
+    
+    <div class="panel-body">
+        <form name="frmCadastroProdutos">
+
+            <div class="form-group">
+                <label for="codigo">Código:</label>
+                <input type="text" id="codigo" name="codigo" class="form-control" ng-model="produto.id">
+            </div>
+
+            <div class="form-group">
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" name="descricao" class="form-control" ng-model="produto.descricao">
+            </div>
+
+            <div class="form-group">
+                <label for="descricao">Preço:</label>
+                <input type="text" id="preco" name="preco" class="form-control" ng-model="produto.preco">
+            </div>
+
+            <p class="alert alert-danger" ng-repeat="erro in erros">
+                {{ erro }}
+            </p>
+
+            <hr>
+
+            <h2>Movimentação</h2>
+            <table border="1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Data/Hora</th>
+                        <th>Tipo</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="movimentacao in produto.movimentacoes track by $index">
+
+                        <td>{{movimentacao.dataHora| date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                        <td>{{movimentacao.tipo}}</td>
+                        <td>{{movimentacao.quantidade}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <hr>
+
+            <button ng-click="salvar(produto)"
+                    ng-disabled="frmCadastroProdutos.$invalid"
+                    class="btn btn-default"
+                    type="button">Salvar
+            </button>
+
+            <button ng-click="salvarCadastrarNovo(produto)"
+                    ng-disabled="frmCadastroProdutos.$invalid"
+                    class="btn btn-default"
+                    type="button">Salvar e Cadastrar Novo
+            </button>
+            
+            <button type="button" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+        </form>
+    </div>
+
+</div>

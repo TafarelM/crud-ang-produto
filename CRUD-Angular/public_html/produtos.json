@@ -1,0 +1,29 @@
+{
+  "Produtos": [
+    {
+      "id": 1,
+      "descricao": "Arroz",
+      "preco": 2.5
+    },
+    {
+      "id": 2,
+      "descricao": "Feijão",
+      "preco": "1.8"
+    },
+    {
+      "descricao": "Tomate",
+      "preco": 3.2,
+      "id": 3
+    },
+    {
+      "descricao": "Macarrão",
+      "preco": "4",
+      "id": 6
+    },
+    {
+      "descricao": "Peixe",
+      "preco": "23.6",
+      "id": 7
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+produtos\Produto.class
+config\ConstrainViolationExceptionMapper.class
+produtos\Movimentacao.class
+produtos\ProdutoService.class
+config\CrossOriginFilter.class
+produtos\Produto_.class
+produtos\Movimentacao_.class
+config\ApplicationConfig.class
+produtos\TipoMovimentacao.class

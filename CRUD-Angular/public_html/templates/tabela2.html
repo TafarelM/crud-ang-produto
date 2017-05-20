@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Table de preços</h5></div>
+
+    <div class="input-group">
+        <input type="text" class="form-control" ng-model="pesquisa" placeholder="Pesquisa" aria-describedby="basic-addon1">
+    </div>
+
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="produto in produtos| filter:{descricao:pesquisa} track by $index">
+            <tr>
+                <td>{{produto.id}}</td>
+                <td>{{produto.descricao| uppercase}}</td>
+                <td>{{produto.preco| currency:'R$ '}}</td>
+
+                <td><a href="#/cadastro/{{produto.id}}">Editar</a></td>
+                <td><a href="" ng-click="excluir(produto)">Excluir</a></td>                    
+            </tr>
+        </tbody>
+    </table>
+</div>
